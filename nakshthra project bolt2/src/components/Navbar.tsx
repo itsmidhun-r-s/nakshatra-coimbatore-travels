@@ -5,7 +5,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import {
-  Compass,
   Menu,
   MessageCircle,
   Phone,
@@ -141,31 +140,29 @@ Please share the available vehicles, quotation and booking details.`;
       >
         <div className="navbar-inner">
           <Link
-            to="/"
-            className="navbar-logo"
-            aria-label={`${site.name} home`}
-            onClick={closeMenu}
-          >
-            <span
-              className="navbar-logo-icon"
-              aria-hidden="true"
-            >
-              <Compass
-                size={20}
-                strokeWidth={2.4}
-              />
-            </span>
+  to="/"
+  className="navbar-logo"
+  aria-label={`${site.name} home`}
+  onClick={closeMenu}
+>
+  <span className="navbar-logo-icon">
+  <img
+    src="/places/logo.png"
+    alt="Nakshatra Travels logo"
+    className="navbar-logo-image"
+  />
+</span>
 
-            <span className="navbar-logo-text">
-              <span className="navbar-logo-name">
-                Nakshatra
-              </span>
+  <span className="navbar-logo-text">
+    <span className="navbar-logo-name">
+      Nakshatra
+    </span>
 
-              <span className="navbar-logo-sub">
-                Coimbatore Travels
-              </span>
-            </span>
-          </Link>
+    <span className="navbar-logo-sub">
+      Coimbatore Travels
+    </span>
+  </span>
+</Link>
 
           <nav
             className="navbar-links"
@@ -274,28 +271,29 @@ Please share the available vehicles, quotation and booking details.`;
         >
           <div className="mobile-menu-header">
   <Link
-    to="/"
-    className="mobile-menu-brand"
-    onClick={closeMenu}
-    aria-label={`${site.name} home`}
-  >
-    <span
-      className="mobile-menu-brand-icon"
-      aria-hidden="true"
-    >
-      <Compass size={20} strokeWidth={2.4} />
+  to="/"
+  className="mobile-menu-brand"
+  onClick={closeMenu}
+  aria-label={`${site.name} home`}
+>
+ <span className="mobile-menu-brand-icon">
+  <img
+    src="/places/logo.png"
+    alt="Nakshatra Travels logo"
+    className="mobile-menu-brand-image"
+  />
+</span>
+
+  <span className="mobile-menu-brand-text">
+    <span className="mobile-menu-brand-name">
+      Nakshatra
     </span>
 
-    <span className="mobile-menu-brand-text">
-      <span className="mobile-menu-brand-name">
-        Nakshatra
-      </span>
-
-      <span className="mobile-menu-brand-sub">
-        Coimbatore Travels
-      </span>
+    <span className="mobile-menu-brand-sub">
+      Coimbatore Travels
     </span>
-  </Link>
+  </span>
+</Link>
 
   <button
     ref={closeButtonRef}
