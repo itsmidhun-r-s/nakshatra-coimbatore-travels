@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0b1a30;
+  --teal: #0c4d3a;
+  --gold: #c8902b;
+  --emerald: #10b981;
+  --shadow-soft: 0 10px 40px -10px rgba(11, 26, 48, 0.15);
+  --shadow-card: 0 8px 30px -12px rgba(11, 26, 48, 0.18);
+  --shadow-premium: 0 20px 50px -20px rgba(11, 26, 48, 0.25);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  color: #16263d;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional reveal variants */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.reveal-blur {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(8px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo),
+    filter 0.8s var(--ease-out-expo);
+}
+.reveal-blur.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* ============================================
+   HERO ENTRANCE ANIMATIONS
+   ============================================ */
+@keyframes hero-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+@keyframes hero-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hero-badge-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.hero-animate-badge {
+  animation: hero-badge-in 0.7s var(--ease-out-expo) both;
+  animation-delay: 0.2s;
+}
+.hero-animate-title {
+  animation: hero-fade-up 0.9s var(--ease-out-expo) both;
+  animation-delay: 0.35s;
+}
+.hero-animate-text {
+  animation: hero-fade-up 0.9s var(--ease-out-expo) both;
+  animation-delay: 0.55s;
+}
+.hero-animate-actions {
+  animation: hero-fade-up 0.9s var(--ease-out-expo) both;
+  animation-delay: 0.75s;
+}
+.hero-animate-trust {
+  animation: hero-fade-up 0.9s var(--ease-out-expo) both;
+  animation-delay: 0.95s;
+}
+.hero-animate-booking {
+  animation: hero-fade-in 1s var(--ease-out-expo) both,
+    hero-fade-up 1s var(--ease-out-expo) both;
+  animation-delay: 0.6s;
+}
+
+/* ============================================
+   FLOATING IMAGE ANIMATION
+   ============================================ */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(-0.6deg); }
+  66% { transform: translateY(4px) rotate(0.4deg); }
+}
+.float-y {
+  animation: float-y 4s ease-in-out infinite;
+}
+.float-soft {
+  animation: float-soft 6s ease-in-out infinite;
+}
+.float-delay-1 { animation-delay: 0.5s; }
+.float-delay-2 { animation-delay: 1s; }
+.float-delay-3 { animation-delay: 1.5s; }
+
+/* ============================================
+   SECTION HEADING ANIMATIONS
+   ============================================ */
+.heading-underline::after,
+.heading-underline-center::after {
+  content: '';
+  display: block;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #c8902b, #e2c061, #c8902b);
+  background-size: 200% 100%;
+  animation: heading-shine 3.5s ease-in-out infinite;
+}
+.heading-underline::after {
+  width: 64px;
+  margin-top: 14px;
+}
+.heading-underline-center::after {
+  width: 72px;
+  margin: 14px auto 0;
+}
+@keyframes heading-shine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animated eyebrow chip */
+@keyframes eyebrow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 144, 43, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(200, 144, 43, 0); }
+}
+.section-heading-eyebrow {
+  animation: eyebrow-pulse 2.8s ease-in-out infinite;
+}
+.section-heading-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c8902b;
+  display: inline-block;
+  animation: eyebrow-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   BUTTON SHINE EFFECT
+   ============================================ */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  transition: left 0.7s var(--ease-out-expo);
+  z-index: 1;
+  pointer-events: none;
+}
+.btn-shine:hover::before {
+  left: 130%;
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #e2c061 0%, #c8902b 60%, #a8701f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease-in-out infinite;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f0f4f8; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #243b53, #0c4d3a);
+  border-radius: 999px;
+  border: 2px solid #f0f4f8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0b1a30, #0f6047);
+}
+
+/* ============================================
+   FOCUS RING
+   ============================================ */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(200, 144, 43, 0.18);
+  border-color: #c8902b;
+}
+
+/* ============================================
+   HIDE SCROLLBAR FOR FILTER ROW
+   ============================================ */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================
+   PRINT FRIENDLY
+   ============================================ */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-blur {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

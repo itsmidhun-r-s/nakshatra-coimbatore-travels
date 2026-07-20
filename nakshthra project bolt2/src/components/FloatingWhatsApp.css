@@ -1,0 +1,123 @@
+.floating-wa {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: opacity 0.6s var(--ease-out-expo, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 0.6s var(--ease-out-expo, cubic-bezier(0.22, 1, 0.36, 1));
+  pointer-events: none;
+}
+.floating-wa.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.floating-wa-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 30px -8px rgba(16, 185, 129, 0.6);
+  transition: transform 0.35s var(--ease-out-expo, ease), box-shadow 0.35s ease;
+  text-decoration: none;
+  animation: float-soft 5s ease-in-out infinite;
+}
+.floating-wa-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.8);
+}
+.floating-wa-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.floating-wa-btn:hover::after {
+  opacity: 1;
+}
+.floating-wa-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: pulse-ring 2.4s infinite;
+  pointer-events: none;
+}
+.floating-wa-tip {
+  position: relative;
+  background: #fff;
+  color: #16263d;
+  padding: 12px 36px 12px 14px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px -10px rgba(11, 26, 48, 0.3);
+  max-width: 240px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.5s var(--ease-out-expo, ease), transform 0.5s var(--ease-out-expo, ease);
+  margin-bottom: 4px;
+}
+.floating-wa-tip.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.floating-wa-tip p {
+  margin: 0;
+  font-weight: 500;
+}
+.floating-wa-tip::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  bottom: 16px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+.floating-wa-tip-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: #f0f4f8;
+  color: #486581;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.floating-wa-tip-close:hover {
+  background: #d9e2ec;
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .floating-wa {
+    bottom: 84px;
+    right: 16px;
+  }
+  .floating-wa-btn {
+    width: 54px;
+    height: 54px;
+  }
+  .floating-wa-tip {
+    display: none;
+  }
+}

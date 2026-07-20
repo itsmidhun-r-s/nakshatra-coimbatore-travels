@@ -1,0 +1,459 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.packages-page-section {
+  padding: 88px 0 96px;
+}
+
+.packages-filters {
+  margin: 48px auto 28px;
+  max-width: 880px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #e9eef4;
+  border-radius: 999px;
+  box-shadow: 0 12px 32px -18px rgba(11, 26, 48, 0.22);
+  overflow-x: auto;
+}
+.packages-filters-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f6eccd;
+  color: #a8701f;
+  flex-shrink: 0;
+  transition: transform 0.35s var(--ease-out-expo, ease);
+}
+.packages-filters:hover .packages-filters-icon {
+  transform: rotate(-12deg) scale(1.08);
+}
+.packages-filters-list {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 2px;
+  flex: 1;
+}
+.packages-filter {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334e68;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.packages-filter:hover {
+  background: #f0f4f8;
+  color: #0b1a30;
+  transform: translateY(-1px);
+}
+.packages-filter.is-active {
+  background: linear-gradient(135deg, #0b1a30, #0c4d3a);
+  color: #fff;
+  box-shadow: 0 10px 22px -10px rgba(11, 26, 48, 0.55);
+  transform: translateY(-1px);
+}
+
+.packages-results-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 28px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #f7fafc;
+  border: 1px solid #e9eef4;
+  font-size: 0.85rem;
+  color: #486581;
+}
+.packages-results-meta svg {
+  color: #c8902b;
+}
+
+.packages-results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.packages-results-card-wrap {
+  height: 100%;
+}
+
+.packages-empty {
+  text-align: center;
+  padding: 64px 20px;
+  background: #f7fafc;
+  border-radius: 1.5rem;
+  border: 1px dashed #d9e2ec;
+  color: #486581;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+  .packages-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .packages-results-grid {
+    grid-template-columns: 1fr;
+  }
+  .packages-filters {
+    border-radius: 1.25rem;
+  }
+}
+
+/* ============================================
+   COIMBATORE TOURIST PLACES
+============================================ */
+
+.coimbatore-places-section {
+  position: relative;
+  padding: 92px 20px 100px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 7% 10%,
+      rgba(11, 143, 105, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 94% 88%,
+      rgba(214, 164, 39, 0.08),
+      transparent 30%
+    ),
+    #f7fafc;
+}
+
+.coimbatore-places-heading {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.coimbatore-places-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  padding: 7px 15px;
+  color: #a86e12;
+  background: #fff8dc;
+  border: 1px solid rgba(168, 110, 18, 0.2);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.coimbatore-places-heading h2 {
+  margin: 0 0 18px;
+  color: #102238;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+.coimbatore-places-heading p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #61768d;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* GRID */
+
+.coimbatore-places-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 46px;
+}
+
+.coimbatore-place-card-wrap {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+
+/* CARD */
+
+.coimbatore-place-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dfe8ef;
+  border-radius: 22px;
+  box-shadow: 0 14px 38px rgba(15, 35, 56, 0.08);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.coimbatore-place-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(10, 145, 106, 0.34);
+  box-shadow: 0 24px 50px rgba(15, 35, 56, 0.14);
+}
+
+/* IMAGE */
+
+.coimbatore-place-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #edf3f4;
+  flex-shrink: 0;
+}
+
+.coimbatore-place-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.001);
+  transition:
+    transform 0.5s ease,
+    filter 0.4s ease;
+}
+
+.coimbatore-place-card:hover .coimbatore-place-image {
+  transform: scale(1.055);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.coimbatore-place-image-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 24, 31, 0.02) 35%,
+      rgba(4, 42, 40, 0.2) 100%
+    );
+  pointer-events: none;
+}
+
+.coimbatore-place-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - 28px);
+  padding: 7px 11px;
+  color: #ffffff;
+  background: rgba(4, 77, 62, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* CARD CONTENT */
+
+.coimbatore-place-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  padding: 19px;
+}
+
+.coimbatore-place-content h3 {
+  width: 100%;
+  margin: 0;
+  overflow-wrap: break-word;
+  color: #102238;
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+/* ENQUIRE BUTTON */
+
+.coimbatore-place-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  padding: 11px 14px;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #13b883,
+      #07845f
+    );
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 9px 20px rgba(7, 132, 95, 0.2);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.coimbatore-place-button:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 13px 25px rgba(7, 132, 95, 0.3);
+}
+
+/* NOTE */
+
+.coimbatore-places-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+  padding: 20px 23px;
+  color: #31546b;
+  background: #ffffff;
+  border: 1px solid #dfe8ef;
+  border-radius: 17px;
+  box-shadow: 0 10px 28px rgba(15, 35, 56, 0.06);
+}
+
+.coimbatore-places-note svg {
+  flex: 0 0 auto;
+  color: #0a8d69;
+}
+
+.coimbatore-places-note p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* REMOVE OLD ICON CARD STYLES */
+
+.coimbatore-place-icon {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .coimbatore-places-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .coimbatore-place-image-wrap {
+    height: 240px;
+  }
+}
+
+@media (max-width: 650px) {
+  .coimbatore-places-section {
+    padding: 70px 16px 78px;
+  }
+
+  .coimbatore-places-heading {
+    text-align: left;
+  }
+
+  .coimbatore-places-heading p {
+    margin-left: 0;
+  }
+
+  .coimbatore-places-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 36px;
+  }
+
+  .coimbatore-place-image-wrap {
+    height: 235px;
+  }
+
+  .coimbatore-place-content {
+    padding: 18px;
+  }
+
+  .coimbatore-place-content h3 {
+    font-size: 19px;
+  }
+
+  .coimbatore-places-note {
+    align-items: flex-start;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .coimbatore-places-section {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .coimbatore-place-image-wrap {
+    height: 210px;
+  }
+}
+.coimbatore-place-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+
+  color: #597083;
+  background:
+    linear-gradient(
+      135deg,
+      #eaf1f2,
+      #dfe9eb
+    );
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.coimbatore-place-image-fallback svg {
+  color: #78909e;
+}

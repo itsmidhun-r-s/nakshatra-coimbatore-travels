@@ -1,0 +1,106 @@
+.page-header {
+  position: relative;
+  padding: 140px 20px 80px;
+  background: linear-gradient(135deg, #0b1a30 0%, #16263d 50%, #0c4d3a 100%);
+  color: #fff;
+  overflow: hidden;
+}
+.page-header-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  animation: hero-bg-zoom 20s ease-in-out infinite alternate;
+}
+@keyframes hero-bg-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+/* .page-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 15, 31, 0.55) 0%, rgba(5, 15, 31, 0.85) 100%);
+} */
+.page-header-inner {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  animation: page-header-in 0.9s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)) both;
+}
+@keyframes page-header-in {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.page-header-crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.8rem;
+  color: #bcccdc;
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.page-header-crumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(226, 192, 97, 0.3);
+}
+.page-header-crumb-link {
+  color: #e2c061;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.page-header-crumb-link:hover {
+  color: #f6eccd;
+}
+.page-header-crumb-current {
+  color: #fff;
+  font-weight: 600;
+}
+.page-header-eyebrow {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e2c061;
+  margin-bottom: 16px;
+  animation: hero-badge-in 0.7s var(--ease-out-expo, ease) 0.2s both;
+}
+.page-header-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  animation: hero-fade-up 0.9s var(--ease-out-expo, ease) 0.35s both;
+}
+.page-header-subtitle {
+  font-size: 1.05rem;
+  color: #bcccdc;
+  line-height: 1.65;
+  max-width: 680px;
+  margin: 0 auto;
+  animation: hero-fade-up 0.9s var(--ease-out-expo, ease) 0.55s both;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 110px 20px 64px;
+  }
+}

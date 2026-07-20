@@ -1,0 +1,101 @@
+.booking-form {
+  width: 100%;
+}
+.booking-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.booking-field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334e68;
+  letter-spacing: 0.02em;
+}
+.booking-field-label svg {
+  color: #c8902b;
+}
+.booking-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #d9e2ec;
+  background: #fff;
+  font-size: 0.92rem;
+  color: #16263d;
+  font-family: inherit;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.booking-input:hover {
+  border-color: #bcccdc;
+}
+.booking-input::placeholder {
+  color: #9fb3c8;
+}
+.booking-submit {
+  margin-top: 18px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 28px -12px rgba(16, 185, 129, 0.7);
+  transition: transform 0.3s var(--ease-out-expo, ease), box-shadow 0.3s ease, background 0.3s ease;
+}
+.booking-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.7s var(--ease-out-expo, ease);
+}
+.booking-submit:hover::before {
+  left: 130%;
+}
+.booking-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -12px rgba(16, 185, 129, 0.85);
+}
+.booking-submit:active {
+  transform: translateY(0);
+}
+.booking-submit-arrow {
+  transition: transform 0.3s ease;
+}
+.booking-submit:hover .booking-submit-arrow {
+  transform: translateX(4px);
+}
+.booking-form-note {
+  margin: 14px 0 0;
+  font-size: 0.76rem;
+  color: #6e8aa8;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .booking-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

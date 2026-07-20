@@ -1,0 +1,728 @@
+.container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   DETAILED SERVICES
+============================================ */
+
+.services-detail-section {
+  padding: 88px 0 82px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(13, 138, 103, 0.055),
+      transparent 30%
+    ),
+    #ffffff;
+}
+
+.services-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 52px;
+}
+
+.services-detail-card-wrap {
+  width: 100%;
+}
+
+.services-detail-card {
+  display: grid;
+  grid-template-columns:
+    minmax(300px, 405px)
+    minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+
+  width: 100%;
+  min-height: 286px;
+  padding: 30px;
+
+  background: #ffffff;
+  border: 1px solid #dfe8ef;
+  border-radius: 27px;
+
+  box-shadow:
+    0 15px 42px rgba(15, 35, 55, 0.065);
+
+  transition:
+    transform 0.38s
+      cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.38s ease,
+    border-color 0.38s ease;
+}
+
+.services-detail-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(9, 139, 103, 0.3);
+
+  box-shadow:
+    0 26px 55px rgba(15, 35, 55, 0.12);
+}
+
+.services-detail-card.is-reversed {
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, 405px);
+}
+
+.services-detail-card.is-reversed
+  .services-detail-media {
+  order: 2;
+}
+
+.services-detail-card.is-reversed
+  .services-detail-body {
+  order: 1;
+}
+
+/* Compact image matching requested design */
+
+.services-detail-media {
+  position: relative;
+  width: 100%;
+  height: 225px;
+  overflow: hidden;
+
+  background: #e9f0f2;
+  border-radius: 23px;
+
+  box-shadow:
+    0 10px 26px rgba(14, 38, 54, 0.08);
+
+  isolation: isolate;
+}
+
+.services-detail-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 65%,
+      rgba(4, 45, 42, 0.08) 100%
+    );
+
+  pointer-events: none;
+}
+
+.services-detail-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.55s
+      cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+
+.services-detail-card:hover
+  .services-detail-image {
+  transform: scale(1.05);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* Hide old unwanted elements */
+
+.services-detail-image-number,
+.services-detail-image-overlay,
+.services-detail-eyebrow,
+.services-detail-icon {
+  display: none !important;
+}
+
+/* Content */
+
+.services-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  padding: 2px 0;
+}
+
+.services-detail-title {
+  margin: 0 0 13px;
+
+  color: #102238;
+  font-size: clamp(21px, 2vw, 25px);
+  font-weight: 850;
+  line-height: 1.25;
+
+  transition: color 0.3s ease;
+}
+
+.services-detail-card:hover
+  .services-detail-title {
+  color: #075d48;
+}
+
+.services-detail-desc {
+  margin: 0 0 19px;
+
+  color: #526f8d;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.services-detail-points {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 11px 24px;
+
+  margin: 0 0 22px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.services-detail-points li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 0;
+
+  color: #385570;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.services-detail-card:hover
+  .services-detail-points li {
+  color: #233f58;
+}
+
+.services-detail-points li svg {
+  flex: 0 0 auto;
+  color: #078a67;
+
+  transition: transform 0.3s ease;
+}
+
+.services-detail-card:hover
+  .services-detail-points li svg {
+  transform: scale(1.12);
+}
+
+/* WhatsApp button */
+
+.services-detail-wa {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  gap: 8px;
+
+  padding: 12px 20px;
+  overflow: hidden;
+
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #13bd86,
+      #079469
+    );
+
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+
+  box-shadow:
+    0 10px 22px rgba(6, 151, 107, 0.23);
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+}
+
+.services-detail-wa::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.38),
+      transparent
+    );
+
+  transform: skewX(-18deg);
+
+  transition: left 0.7s ease;
+}
+
+.services-detail-wa:hover::before {
+  left: 130%;
+}
+
+.services-detail-wa:hover {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0eaa78,
+      #047c5a
+    );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 28px rgba(6, 151, 107, 0.31);
+}
+
+.services-detail-wa:focus-visible {
+  outline: 3px solid
+    rgba(16, 185, 129, 0.28);
+  outline-offset: 4px;
+}
+
+/* ============================================
+   ENQUIRY SECTION
+============================================ */
+
+.services-enquiry-section {
+  padding: 86px 0 96px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f7fafc 0%,
+      #ffffff 100%
+    );
+}
+
+.services-enquiry-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
+  align-items: start;
+  gap: 52px;
+}
+
+.services-enquiry-intro {
+  position: sticky;
+  top: 120px;
+}
+
+.services-enquiry-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: #b8781b;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.services-enquiry-title {
+  margin: 0 0 14px;
+
+  color: #0b1a30;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.services-enquiry-text {
+  margin: 0 0 25px;
+
+  color: #486581;
+  font-size: 0.96rem;
+  line-height: 1.75;
+}
+
+.services-enquiry-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.services-enquiry-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #243b53;
+  font-size: 0.93rem;
+  font-weight: 600;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.services-enquiry-benefits li:hover {
+  color: #0c4d3a;
+  transform: translateX(4px);
+}
+
+.services-enquiry-benefits svg {
+  flex: 0 0 auto;
+  color: #0f8b68;
+
+  transition: transform 0.3s ease;
+}
+
+.services-enquiry-benefits li:hover svg {
+  transform: scale(1.13);
+}
+
+/* Form */
+
+.services-enquiry-form-wrap {
+  width: 100%;
+}
+
+.services-enquiry-form {
+  width: 100%;
+  padding: 31px 29px;
+
+  background: #ffffff;
+  border: 1px solid #e1e9ef;
+  border-radius: 28px;
+
+  box-shadow:
+    0 20px 48px rgba(11, 26, 48, 0.1);
+}
+
+.services-enquiry-row {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.services-enquiry-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  min-width: 0;
+}
+
+.services-enquiry-field-full {
+  margin-top: 1px;
+}
+
+.services-enquiry-label {
+  color: #334e68;
+  font-size: 0.79rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.services-enquiry-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+
+  color: #16263d;
+  background: #ffffff;
+
+  border: 1.5px solid #d9e2ec;
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 0.92rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.services-enquiry-input:hover {
+  border-color: #b8c8d6;
+}
+
+.services-enquiry-input:focus {
+  border-color: #0e9b72;
+
+  box-shadow:
+    0 0 0 4px
+      rgba(14, 155, 114, 0.11);
+}
+
+.services-enquiry-input::placeholder {
+  color: #9fb3c8;
+}
+
+.services-enquiry-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.services-enquiry-submit {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px 20px;
+  overflow: hidden;
+
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #10b981 0%,
+      #047857 100%
+    );
+
+  border: none;
+  border-radius: 999px;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 28px
+      rgba(16, 185, 129, 0.28);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.services-enquiry-submit::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  transform: skewX(-18deg);
+
+  transition: left 0.7s ease;
+}
+
+.services-enquiry-submit:hover::before {
+  left: 130%;
+}
+
+.services-enquiry-submit:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 18px 36px
+      rgba(16, 185, 129, 0.38);
+}
+
+.services-enquiry-submit:focus-visible {
+  outline: 3px solid
+    rgba(16, 185, 129, 0.28);
+  outline-offset: 4px;
+}
+
+.services-enquiry-arrow {
+  transition: transform 0.3s ease;
+}
+
+.services-enquiry-submit:hover
+  .services-enquiry-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 1024px) {
+  .services-detail-card,
+  .services-detail-card.is-reversed {
+    grid-template-columns:
+      340px minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .services-detail-card.is-reversed
+    .services-detail-media,
+  .services-detail-card.is-reversed
+    .services-detail-body {
+    order: initial;
+  }
+
+  .services-detail-media {
+    height: 220px;
+  }
+
+  .services-detail-points {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .services-enquiry-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .services-enquiry-intro {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-detail-section {
+    padding: 66px 0 72px;
+  }
+
+  .services-detail-list {
+    gap: 19px;
+    margin-top: 38px;
+  }
+
+  .services-detail-card,
+  .services-detail-card.is-reversed {
+    grid-template-columns: 1fr;
+    gap: 21px;
+
+    min-height: 0;
+    padding: 18px;
+
+    border-radius: 22px;
+  }
+
+  .services-detail-card.is-reversed
+    .services-detail-media,
+  .services-detail-card.is-reversed
+    .services-detail-body {
+    order: initial;
+  }
+
+  .services-detail-media {
+    height: 220px;
+    border-radius: 18px;
+  }
+
+  .services-detail-body {
+    padding: 0 3px 5px;
+  }
+
+  .services-detail-title {
+    font-size: 21px;
+  }
+
+  .services-detail-desc {
+    font-size: 14px;
+  }
+
+  .services-detail-points {
+    grid-template-columns: 1fr;
+  }
+
+  .services-detail-wa {
+    width: 100%;
+  }
+
+  .services-enquiry-section {
+    padding: 68px 0 76px;
+  }
+
+  .services-enquiry-form {
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+
+  .services-enquiry-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .services-detail-media {
+    height: 190px;
+  }
+
+  .services-enquiry-form {
+    padding: 21px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-detail-card,
+  .services-detail-image,
+  .services-detail-title,
+  .services-detail-points li,
+  .services-detail-points li svg,
+  .services-detail-wa,
+  .services-detail-wa::before,
+  .services-enquiry-benefits li,
+  .services-enquiry-benefits svg,
+  .services-enquiry-input,
+  .services-enquiry-submit,
+  .services-enquiry-submit::before,
+  .services-enquiry-arrow {
+    transition: none;
+  }
+}
