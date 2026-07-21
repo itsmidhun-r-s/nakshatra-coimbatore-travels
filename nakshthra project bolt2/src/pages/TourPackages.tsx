@@ -104,19 +104,24 @@ export default function TourPackages() {
 
           {/* PACKAGE FILTERS */}
           <ScrollReveal delay={1}>
-            <div
-              className="packages-filters"
-              role="tablist"
-              aria-label="Tour package categories"
-            >
-              <span
-                className="packages-filters-icon"
-                aria-hidden="true"
+            <div className="package-filter-shell">
+              <div
+                className="package-filter-scroll"
+                role="tablist"
+                aria-label="Tour package categories"
               >
-                <SlidersHorizontal size={17} />
-              </span>
+                <button
+                  type="button"
+                  className="package-filter-settings"
+                  aria-label="Package filters"
+                  tabIndex={-1}
+                >
+                  <SlidersHorizontal
+                    size={18}
+                    aria-hidden="true"
+                  />
+                </button>
 
-              <div className="packages-filters-list no-scrollbar">
                 {categories.map((category) => {
                   const isActive =
                     activeCategory === category;
@@ -127,7 +132,7 @@ export default function TourPackages() {
                       type="button"
                       role="tab"
                       aria-selected={isActive}
-                      className={`packages-filter ${
+                      className={`package-filter-button ${
                         isActive ? "is-active" : ""
                       }`}
                       onClick={() =>
