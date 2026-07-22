@@ -1,3 +1,4 @@
+import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Phone,
@@ -29,21 +30,71 @@ import { site } from '../lib/site';
 import { services, packages, testimonials, faqs } from '../lib/data';
 import './Home.css';
 
-import { useEffect, useState } from "react";
-
-import hero1 from "../assets/images/packages/Alleppey.png";
-import hero2 from "../assets/images/packages/Ooty.png";
-import hero3 from "../assets/images/packages/Kodaikanal.png";
-import hero4 from "../assets/images/packages/Munnar.png";
-
+import hero7 from "../assets/images/packages/Alleppey.png";
+import hero8 from "../assets/images/packages/Ooty.png";
+import hero9 from "../assets/images/packages/Kodaikanal.png";
+import hero10 from "../assets/images/packages/Munnar.png";
 import travelVideo from "../assets/videos/video.mp4";
 
-const heroImages = [
-  hero1,
-  hero2,
-  hero3,
-  hero4,
+type HeroImage = {
+  src: string;
+  position: string;
+  alt: string;
+};
+
+const heroImages: HeroImage[] = [
+  {
+    src: "/places/adiyogi.jpg",
+    position: "center 38%",
+    alt: "Adiyogi Shiva Statue at Isha Yoga Center near Coimbatore",
+  },
+  {
+    src: "/places/siruvani.png",
+    position: "center 45%",
+    alt: "Siruvani waterfalls near Coimbatore",
+  },
+  {
+    src: "/places/kovai-kutralam.jpg",
+    position: "center 45%",
+    alt: "Kovai Kutralam waterfalls",
+  },
+  {
+    src: "/places/marudhamalai.png",
+    position: "center 40%",
+    alt: "Marudhamalai Murugan Temple",
+  },
+  {
+    src: "/places/pollachi.jpeg",
+    position: "center 55%",
+    alt: "Pollachi tourist destination",
+  },
+  {
+    src: "/places/valparai.jpg",
+    position: "center 50%",
+    alt: "Valparai hill station",
+  },
+  {
+    src: hero7,
+    position: "center",
+    alt: "Alleppey tour package",
+  },
+  {
+    src: hero8,
+    position: "center",
+    alt: "Ooty tour package",
+  },
+  {
+    src: hero9,
+    position: "center",
+    alt: "Kodaikanal tour package",
+  },
+  {
+    src: hero10,
+    position: "center",
+    alt: "Munnar tour package",
+  },
 ];
+
 
 
 
@@ -54,12 +105,28 @@ export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    heroImages.forEach(({ src }) => {
+      const image = new Image();
+      image.src = src;
+    });
+
+    const timer = window.setInterval(() => {
+      setCurrentImage((previous) => (previous + 1) % heroImages.length);
     }, 5000);
 
-    return () => clearInterval(timer);
+    return () => window.clearInterval(timer);
   }, []);
+
+  const handleHeroImageError = (
+    event: SyntheticEvent<HTMLImageElement>,
+  ) => {
+    const image = event.currentTarget;
+
+    if (image.src !== hero8) {
+      image.src = hero8;
+      image.style.objectPosition = 'center';
+    }
+  };
   return (
     <>
       <Seo
@@ -70,26 +137,38 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg"
-          style={{
-            backgroundImage: `url(${heroImages[currentImage]})`,
-          }}
-        />
-        <div className="hero-overlay" />
+        <div className="hero-bg" aria-hidden="true">
+          <img
+            key={heroImages[currentImage].src}
+            src={heroImages[currentImage].src}
+            alt=""
+            className="hero-bg-image"
+            style={{
+              objectPosition: heroImages[currentImage].position,
+            }}
+            onError={handleHeroImageError}
+          />
+        </div>
+
         <div className="hero-inner">
           <div className="hero-content">
             <span className="hero-badge hero-animate-badge">
               <span className="hero-badge-dot" />
               Open 24 Hours &middot; WhatsApp Booking Available
             </span>
+
             <h1 className="hero-title hero-animate-title">
-              Trusted Travel Agency in <span className="text-gradient-gold">Coimbatore</span>
+              Trusted Travel Agency in{' '}
+              <span className="text-gradient-gold">Coimbatore</span>
             </h1>
+
             <p className="hero-text hero-animate-text">
-              Nakshatra Coimbatore Travels provides reliable travel services, custom tour
-              packages, outstation trips, airport transfers, and pilgrimage travel from
-              Coimbatore. We are open 24 hours and provide quick WhatsApp booking support.
+              Nakshatra Coimbatore Travels provides reliable travel services,
+              custom tour packages, outstation trips, airport transfers, and
+              pilgrimage travel from Coimbatore. We are open 24 hours and
+              provide quick WhatsApp booking support.
             </p>
+
             <div className="hero-actions hero-animate-actions">
               <WhatsAppButton
                 message="Hi Nakshatra Coimbatore Travels, I want to book a trip"
@@ -98,17 +177,22 @@ export default function Home() {
               />
               <CallButton label="Call Now" variant="light" size="lg" />
             </div>
+
             <div className="hero-trust hero-animate-trust">
               <div className="hero-trust-item">
                 <span className="hero-trust-num">500+</span>
                 <span className="hero-trust-label">Happy Travellers</span>
               </div>
+
               <span className="hero-trust-divider" />
+
               <div className="hero-trust-item">
                 <span className="hero-trust-num">20+</span>
                 <span className="hero-trust-label">Destinations</span>
               </div>
+
               <span className="hero-trust-divider" />
+
               <div className="hero-trust-item">
                 <span className="hero-trust-num">24/7</span>
                 <span className="hero-trust-label">Support</span>
@@ -122,13 +206,16 @@ export default function Home() {
                 <span className="hero-booking-eyebrow">Quick Booking</span>
                 <h2 className="hero-booking-title">Plan Your Trip</h2>
                 <p className="hero-booking-sub">
-                  Share your trip details and get a custom quote on WhatsApp instantly.
+                  Share your trip details and get a custom quote on WhatsApp
+                  instantly.
                 </p>
               </div>
+
               <BookingForm />
             </div>
           </div>
         </div>
+
         <div className="hero-wave" aria-hidden="true">
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
             <path
